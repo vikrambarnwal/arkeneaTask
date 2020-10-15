@@ -1,0 +1,97 @@
+<h3>User Management</h3>
+<div class="col-md-12">
+  <div class="card card-container col-md-6">
+
+    <form name="form" [formGroup]="form" (ngSubmit)="f.form.valid && addUser()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" formControlName="email" required />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('email').hasError('required')">
+          email is required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('email').hasError('email')">
+          email is invalid!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="obile">Mobile</label>
+        <input type="mobile" class="form-control" formControlName="mobile" required minlength="10" maxlength="10" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('mobile').hasError('required')">
+          mobile is required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('mobile').hasError('minlength')">
+          mobile must be at least 10 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">First Name</label>
+        <input type="firstName" class="form-control" formControlName="firstName" required minlength="1" />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('firstName').hasError('required')">
+          First name is required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('firstName').hasError('minlength')">
+          First name must be at least 1 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobile">Last Name</label>
+        <input type="lastName" class="form-control" formControlName="lastName" required />
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('lastName').hasError('required')">
+          Last name is required!
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="f.submitted && form.get('lastName').hasError('minlength')">
+          Last name must be at least 1 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pic">Profile Pic</label>
+        <input type="file" class="form-control" name="profilePic" accept='image/*' (change)="uploadFile($event)"
+          #profilePic />
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          {{buttonActionName}}
+        </button>
+      </div>
+      <div class="form-group">
+        <div class="alert alert-danger" role="alert" *ngIf="isLoading">
+          Loading...
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <div class="card card-container col-md-6">
+    <img [src]="imgSrc" width="120" height="120">
+  </div>
+
+</div>
+<div class="card card-container">
+  <table class="table table-bordered">
+    <tr>
+      <th>Sr No</th>
+      <th>Profile Pic</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of userList;let i=index">
+      <td>{{i+1}}</td>
+      <td><img height="40" width="40" src="{{'http://localhost:4000/'+user.profilePic}}" /></td>
+      <td>{{user.firstName}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.mobile}}</td>
+      <td>{{user.email}}</td>
+      <td><button class="btn btn-info btn-block" (click)="editUser(user)">
+          Edit
+        </button>
+        <button class="btn btn-danger btn-block" (click)="deleteUser(user.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "742384bd-257d-48cf-851a-6e5c3c37d1b4",
+		"name": "User Crud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Vikram",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Barnwal",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "vikrambarnwal@test.com",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "1234567909",
+							"type": "text"
+						},
+						{
+							"key": "profilePic",
+							"type": "file",
+							"src": "/C:/Users/vbb916437/Downloads/Capture.JPG"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWJkNmJkMWFhOGU1OTMyNjhhYTA3MmYiLCJpYXQiOjE1ODk0NzIyMjF9.EeGo2YdFOuGBi2fxAng6FANmrrlW1J9_iboiZsj6WVc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Detail By Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZWI5M2Q1NTZlMTI4ODUyMzA2OTRjYzkiLCJpYXQiOjE1ODkxOTgzMjF9.pgvH2qpXEt7O7C3OPTp8cF1AQ5zRraJPPNN3OBaP80o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"lastName\":\"Kumar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/5f885a3425215559a4b9bab3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"5f885a3425215559a4b9bab3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "firstName",
+							"value": "Vikram",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Barnwal",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "vikrambarnwadqdl@test.com",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "1234567909",
+							"type": "text"
+						},
+						{
+							"key": "profilePic",
+							"type": "file",
+							"src": "/D:/Vikram/Files/Pics/46507287_2260034977408763_373202657675837440_o.jpg"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"add"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a863db05-cdd4-4753-baeb-eb4d0be63c90",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "76d6f61f-5fb8-49f7-a729-61455692f838",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
